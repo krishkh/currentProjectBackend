@@ -1,10 +1,10 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-
+import 'dotenv/config'
 const app = express();
 app.use(cors())
-
+const PORT = process.env.PORT
 app.use(bodyParser.json())
 const arr=[1,2,3,4,5,6,7]
 
@@ -20,7 +20,7 @@ app.get('/api', (req, res) => {
     res.send([1,2]);
 })
 
-app.listen(4000, () => {
-    console.log("Server is running on port 4000");
+app.listen(PORT, () => {
+    console.log(`Server is running on port http://localhost:${PORT}/api`);
 
 });
